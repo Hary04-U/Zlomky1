@@ -16,5 +16,23 @@ public class ZlomkyApp {
         System.out.println(d.toString());
         System.out.println(e.toString());
         System.out.println(f.toString());
+
+        Zlomek[] poleZlomku = new Zlomek[4];
+        poleZlomku[0] = a;
+        poleZlomku[1] = b;
+        poleZlomku[2] = c;
+        poleZlomku[3] = a.deleno(b);
+
+        Zlomek all = sumaZlomku(poleZlomku);
+        System.out.println("Součet je: \n" + all);
+
+    }
+
+    public static Zlomek sumaZlomku(Zlomek[] pole) {
+        Zlomek soucet = new Zlomek(0, 1);
+        for (Zlomek z : pole) {
+            soucet = soucet.scitani(z);
+        }
+        return soucet.zkratit();
     }
 }
