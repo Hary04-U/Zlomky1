@@ -1,5 +1,7 @@
 import cz.uhk.zlomky.model.Zlomek;
 
+import java.util.Arrays;
+
 public class ZlomkyApp {
     public static void main(String[] args) {
         System.out.println("Zlomkoaplikace");
@@ -26,6 +28,21 @@ public class ZlomkyApp {
         Zlomek all = sumaZlomku(poleZlomku);
         System.out.println("Součet je: \n" + all);
 
+
+        Number[] pole2 = new Number[8];
+        for (int i = 0; i < poleZlomku.length; i++) {
+            pole2[i] = poleZlomku[i];
+        }
+        pole2[4] = 10;
+        pole2[5] = 20;
+        pole2[6] = 30.025;
+        pole2[7] = 40;
+        double suma = 0;
+        for (Number n : pole2) {
+            System.out.printf("%s\n", n);
+            suma += n.doubleValue();
+        }
+        System.out.printf("Soucet je %s\n", suma);
     }
 
     public static Zlomek sumaZlomku(Zlomek[] pole) {
