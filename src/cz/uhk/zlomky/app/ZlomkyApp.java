@@ -1,6 +1,6 @@
-import cz.uhk.zlomky.model.Zlomek;
+package cz.uhk.zlomky.app;
 
-import java.util.Arrays;
+import cz.uhk.zlomky.model.Zlomek;
 
 public class ZlomkyApp {
     public static void main(String[] args) {
