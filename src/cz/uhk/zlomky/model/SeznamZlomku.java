@@ -48,8 +48,4 @@ public class SeznamZlomku {
 //            System.out.printf("[%d] => %s\n", i+1, zlomky.get(i));
 //        }
     }
-
-    public List<Zlomek> ziskejZlomky() {
-        return zlomky;
-    }
 }
