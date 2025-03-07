@@ -37,6 +37,11 @@ class SeznamZlomkuTest {
     }
 
     @org.junit.jupiter.api.Test
+    void odebratZlomekZPrazdneho() {
+        assertThrows(IndexOutOfBoundsException.class, () -> seznam.odebratZlomek(0));
+    }
+
+    @org.junit.jupiter.api.Test
     void vratZlomek() {
         seznam.pridatZlomek(new Zlomek(3,5));
         Zlomek z = seznam.vratZlomek(0);
@@ -61,6 +66,11 @@ class SeznamZlomkuTest {
     }
 
     @org.junit.jupiter.api.Test
+    void spoctiSoucetZPrazdneho() {
+        assertThrows(IndexOutOfBoundsException.class, () -> seznam.spoctiSoucet());
+    }
+
+    @org.junit.jupiter.api.Test
     void spoctiPrumer() {
         seznam.pridatZlomek(new Zlomek(3,4));
         seznam.pridatZlomek(new Zlomek(1,2));
@@ -69,6 +79,11 @@ class SeznamZlomkuTest {
         Zlomek z = seznam.spoctiPrumer();
         assertEquals(5, z.getCitatel(), "Citatel");
         assertEquals(8, z.getJmenovatel(), "Jmenovatel");
+    }
+
+    @org.junit.jupiter.api.Test
+    void spoctiPrumerZPrazdneho() {
+        assertThrows(IndexOutOfBoundsException.class, () -> seznam.spoctiPrumer());
     }
 
     @org.junit.jupiter.api.Test

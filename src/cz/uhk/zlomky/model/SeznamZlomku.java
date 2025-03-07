@@ -25,15 +25,23 @@ public class SeznamZlomku {
 
     public Zlomek spoctiSoucet() {
         Zlomek suma = new Zlomek(0, 1);
-        for (Zlomek z : zlomky) {
-            suma = suma.scitani(z);
+        if (zlomky.size() == 0) {
+            throw new IndexOutOfBoundsException("Seznam je prázdný");
+        } else {
+            for (Zlomek z : zlomky) {
+                suma = suma.scitani(z);
+            }
+            return suma.zkratit();
         }
-        return suma.zkratit();
     }
     public Zlomek spoctiPrumer() {
-        Zlomek suma = spoctiSoucet();
-        Zlomek pocet = new Zlomek(zlomky.size(), 1); //musime vytvorit zlomek pocet aby byl v return suma / pocet
-        return suma.deleno(pocet).zkratit();
+        if (zlomky.size() == 0) {
+            throw new IndexOutOfBoundsException("Seznam je prázdný");
+        } else {
+            Zlomek suma = spoctiSoucet();
+            Zlomek pocet = new Zlomek(zlomky.size(), 1); //musime vytvorit zlomek pocet aby byl v return suma / pocet
+            return suma.deleno(pocet).zkratit();
+        }
     }
 
     public int pocetZlomku () {
