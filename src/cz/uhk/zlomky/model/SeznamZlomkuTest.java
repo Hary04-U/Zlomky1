@@ -1,20 +1,20 @@
 package cz.uhk.zlomky.model;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-
-import java.util.List;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SeznamZlomkuTest {
     SeznamZlomku seznam;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         seznam = new SeznamZlomku();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     @DisplayName("Test pridavani")
     void pridatZlomek() {
         seznam.pridatZlomek(new Zlomek(3,5));
@@ -23,25 +23,25 @@ class SeznamZlomkuTest {
         assertEquals(5, z.getJmenovatel(), "Jmenovatel");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void pridatZlomekNull() {
         assertThrows(NullPointerException.class, () -> seznam.pridatZlomek(null));
         assertEquals(0, seznam.pocetZlomku(), "Pocet Zlomku");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void odebratZlomek() {
         seznam.pridatZlomek(new Zlomek(3,5));
         seznam.odebratZlomek(0);
         assertEquals(0, seznam.pocetZlomku(), "Pocet Zlomku");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void odebratZlomekZPrazdneho() {
         assertThrows(IndexOutOfBoundsException.class, () -> seznam.odebratZlomek(0));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void vratZlomek() {
         seznam.pridatZlomek(new Zlomek(3,5));
         Zlomek z = seznam.vratZlomek(0);
@@ -49,44 +49,40 @@ class SeznamZlomkuTest {
         assertEquals(5, z.getJmenovatel(), "Jmenovatel");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void vratZlomekZPrazdneho() {
         assertThrows(IndexOutOfBoundsException.class, () -> seznam.vratZlomek(0));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void spoctiSoucet() {
         seznam.pridatZlomek(new Zlomek(3,4));
         seznam.pridatZlomek(new Zlomek(1,2));
-        Zlomek z1 = seznam.vratZlomek(0);
-        Zlomek z2 = seznam.vratZlomek(1);
         Zlomek z = seznam.spoctiSoucet();
         assertEquals(5, z.getCitatel(), "Citatel");
         assertEquals(4, z.getJmenovatel(), "Jmenovatel");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void spoctiSoucetZPrazdneho() {
         assertThrows(IndexOutOfBoundsException.class, () -> seznam.spoctiSoucet());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void spoctiPrumer() {
         seznam.pridatZlomek(new Zlomek(3,4));
         seznam.pridatZlomek(new Zlomek(1,2));
-        Zlomek z1 = seznam.vratZlomek(0);
-        Zlomek z2 = seznam.vratZlomek(1);
         Zlomek z = seznam.spoctiPrumer();
         assertEquals(5, z.getCitatel(), "Citatel");
         assertEquals(8, z.getJmenovatel(), "Jmenovatel");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void spoctiPrumerZPrazdneho() {
         assertThrows(IndexOutOfBoundsException.class, () -> seznam.spoctiPrumer());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void vypisZlomky() {
 
     }
