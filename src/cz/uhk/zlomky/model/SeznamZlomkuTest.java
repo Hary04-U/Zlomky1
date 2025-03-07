@@ -81,9 +81,4 @@ class SeznamZlomkuTest {
     void spoctiPrumerZPrazdneho() {
         assertThrows(IndexOutOfBoundsException.class, () -> seznam.spoctiPrumer());
     }
-
-    @Test
-    void vypisZlomky() {
-
-    }
 }
